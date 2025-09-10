@@ -1,16 +1,18 @@
 import React from 'react'
 
-export const LoginForm = ({setIsLoggedIn}) => {
-    function handelSubmit() {
+export const LoginForm = ({ setIsLoggedIn }) => {
+  function handleSubmit(e) {
+    e.preventDefault();
     setIsLoggedIn(true);
   }
+
   return (
-    <form>
-          <label>Username:</label>
-          <input type="text" required></input>
-          <label>Password:</label>
-          <input type="password" required></input>
-          <button onClick={handleSubmit}>Login</button>
-        </form>
+    <form onSubmit={handleSubmit}>
+      <label>Username:</label>
+      <input type="text" required />
+      <label>Password:</label>
+      <input type="password" required />
+      <button type="submit">Login</button>
+    </form>
   )
 }
